@@ -1,14 +1,19 @@
 package org.example.Lesson5;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Allure;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.logging.LogEntries;
+import org.openqa.selenium.logging.LogEntry;
+import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.Iterator;
 
 public class TumblrTest {
     WebDriver driver;
@@ -73,6 +78,11 @@ public class TumblrTest {
 
     @AfterEach
     void tearDown() {
+        LogEntries browserLogs = driver.manage().logs().get(LogType.BROWSER);
+        for (LogEntry browserLog : browserLogs) {
+            Allure.addAttachment("Log entry: ", browserLog.getMessage());
+        }
+
         driver.quit();
     }
 
