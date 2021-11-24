@@ -1,6 +1,7 @@
 package org.example.Lesson6.CRM_Refractor;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,6 +15,7 @@ public class CRM_Tests {
     WebDriver driver;
     WebDriverWait webDriverWait;
 
+    @Story("CRM Geekbrains")
     @BeforeAll
     static void driverSetup() {
         WebDriverManager.firefoxdriver().setup();
@@ -27,6 +29,7 @@ public class CRM_Tests {
     }
 
     @Test
+    @DisplayName("Создание нового контактного лица")
     void createContactTest() {
         new MainPage(driver).navigationBar.openNavBarItem("Контрагенты");
         new CounterpartySubMenu(driver).counterpartySubMenuItemClick();
@@ -44,6 +47,7 @@ public class CRM_Tests {
     }
 
     @Test
+    @DisplayName("Создание новой заявки на расход")
     void createExpenseTest() {
         new MainPage(driver).navigationBar.openNavBarItem("Расходы");
         new ExpensesSubMenu(driver).expensesSubMenuItemClick();

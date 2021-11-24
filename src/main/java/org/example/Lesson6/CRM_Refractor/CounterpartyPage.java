@@ -1,5 +1,6 @@
 package org.example.Lesson6.CRM_Refractor;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,6 +17,7 @@ public class CounterpartyPage extends BaseView {
     @FindBy(xpath = byXpathButtonCreateContactRequestLocator)
     public WebElement buttonCreateContactRequest;
 
+    @Step("Клик на кнопку создания нового контактного лица")
     public CreateContactPage clickCreateContactRequest() {
         webDriverWait.until(ExpectedConditions.visibilityOf(loader));
         webDriverWait.until(ExpectedConditions.invisibilityOf(loader));

@@ -1,5 +1,6 @@
 package org.example.Lesson6.CRM_Refractor;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,6 +16,7 @@ public class ExpensesPage extends BaseView {
     @FindBy(xpath = byXpathButtonCreateExpenseRequestLocator)
     public WebElement buttonCreateExpenseRequest;
 
+    @Step("Клик на кнопку создания заявки на расход")
     public CreateExpensePage clickCreateExpenseRequest() {
         webDriverWait.until(ExpectedConditions.visibilityOf(loader));
         webDriverWait.until(ExpectedConditions.invisibilityOf(new BaseView(driver).loader));

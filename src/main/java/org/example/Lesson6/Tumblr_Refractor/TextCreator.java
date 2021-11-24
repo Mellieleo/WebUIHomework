@@ -1,5 +1,6 @@
 package org.example.Lesson6.Tumblr_Refractor;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,6 +16,8 @@ public class TextCreator extends BaseViewTumblr {
     public WebElement textCreatorCaller;
 
     public static String iFrame = "//iframe[@title='Post forms']";
+
+    @Step("Открытие формы создания поста, переключение фреймов")
     public CreatePost callTextCreator() {
         textCreatorCaller.click();
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(iFrame)));
